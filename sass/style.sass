@@ -1,0 +1,269 @@
+@import base
+
+body
+    background-color: E5E5E5
+    max-width: 1440px
+.header
+    height: 147px
+    background-color: $grey-color
+    @include maxWidth(1024px)
+        padding: 0 20px
+    @include maxWidth(767px)
+        padding: 0 5px
+        height: 80px
+    &__menu
+        max-width: $containers
+        height: 100%
+        margin: 0 auto
+        @include flex(row, space-between, center)
+        &-name-page
+            width: 100%
+            @include flex(row, space-between, center)
+            @include text(59px, 400, 69.14px)
+            @include maxWidth(767px)
+                @include text(34px, 400, 44px)
+        &-list
+            display: inline-block
+            z-index: 10 
+            @include text(31px, null, null)
+            position: relative
+            -ms-position: relative
+            -webkit-position: relative
+            -o-position: relative
+            span
+                @include flex(row, center, center)
+                column-gap: 10px
+                -webkit-column-gap: 10px
+                -ms-column-gap: 10px
+                -o-column-gap: 10px
+                -moz-column-gap: 10px
+                &:hover
+                    cursor: pointer
+            &-item  
+                display: none
+                @include position(absolute,88%, -22%)
+                min-width: 160px
+                padding: 12px 16px
+                z-index: 1
+                ul
+                    @include flex(column, center,null)
+                    row-gap: 10px
+                    -webkit-row-gap: 10px
+                    -ms-row-gap: 10px
+                    -o-row-gap: 10px
+                    -moz-row-gap: 10px
+                    li
+                        max-width: 200px
+                        a
+                            color: $text-color
+                            &:hover
+                                color: #474747
+            &:hover .header__menu-list-item 
+                display: block       
+
+.main
+    max-width: 100%
+    @include maxWidth(1024px)
+        padding: 0 20px
+    @include maxWidth(767px)
+        padding: 0 5px
+    &__container
+        max-width: $containers
+        margin: 20px auto
+        &-title
+            margin-bottom: 20px
+            h1  
+                @include text(77px, 700, 90.23px)
+                @include maxWidth(767px)
+                    @include text(70px, 700, 75px)
+        .carousel-item
+            img
+                @include img(100%, auto)
+        &-offers
+            margin: 20px auto
+            h2 
+                @include text(32px, 400, 37.92px)
+                margin-bottom: 20px
+            &-list
+                max-width: 100%
+                @include flex(row, space-between, center)
+                overflow-x: auto
+                -moz-overflow-x: auto
+                -o-overflow-x: auto
+                scroll-snap-type: x mandatory
+                &::-webkit-scrollbar
+                    display: none
+                &-item
+                    width: 146px
+                    height: 130px
+                    flex-shrink: 0
+                    background: #FFFFFF
+                    border: 1px solid #CBD1D7
+                    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25)
+                    border-radius: 9px
+                    img
+                        @include img(100%, auto)
+                    p
+                        margin: 10px
+                        overflow: hidden
+                        display : -webkit-box
+                        -webkit-box-orient: vertical
+                        -webkit-line-clamp: 2
+                        @include text(14px, 400,16.59px)
+
+        &-sort
+            @include flex(null, space-between, center)
+            @include maxWidth(767px)
+                @include flex(column, space-between, center)
+                row-gap: 20px
+                -webkit-row-gap: 20px
+                -ms-row-gap: 20px
+                -o-row-gap: 20px
+                -moz-row-gap: 20px
+            > span
+                @include text(31px, 400,36.33px)
+            &-menu 
+                position: relative
+                -ms-position: relative
+                -webkit-position: relative
+                -o-position: relative
+                &:hover
+                    cursor: pointer
+                span
+                    @include text(29px, 700, 33.98px)
+                    @include flex(default, space-between, center)
+                    column-gap: 20px
+                    padding: 20px
+                    border: 1px solid $blue-color
+                    border-radius: 5px
+                &-list  
+                    display: none
+                    @include position(absolute,100%, -1%)
+                    background-color: #f9f9f9
+                    min-width: 300px
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+                    -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+                    -moz-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+                    -o-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+                    z-index: 1
+                    @include maxWidth(767px)
+                        min-width: 290px
+                        right: 0
+                    ul
+                        li
+                            padding: 20px
+                            &:hover
+                                background-color: #e0e0e0
+                            a
+                                text-decoration: none
+                                @include text(29px, 700, 33.98px)
+                                color: $text-color 
+                &:hover .main__container-sort-menu-list
+                    display: block
+
+        &-item
+            margin-top: 50px
+            &-content
+                max-width: 336px
+                padding: 0
+                border: 1px solid #dfdfdf
+                border-radius: 5px
+                -ms-border-radius: 5px
+                -o-border-radius: 5px
+                overflow: hidden 
+                img
+                    @include img(100%, auto)
+                    &:hover
+                        cursor: pointer
+                h2
+                    @include text(31px, 700, 36.33px)
+                    margin-top: 26px
+                    margin-left: 10px 
+                p
+                    @include text(31px, 500, 36.33px)
+                    margin-top: 17px
+                    color: $blue-color
+                    margin-left: 10px 
+                button
+                    margin: 30px 10px
+                    padding: 20px
+                    border: 1px solid $blue-color
+                    border-radius: 5px
+                    -ms-border-radius: 5px
+                    -o-border-radius: 5px
+                    color: $blue-color
+                    @include text(29px, 700, 33.98px)
+                    &:hover
+                        filter: brightness(90%)
+                    cursor: pointer
+        &-pagination
+            margin: 20px 0
+            @include maxWidth(1024px)
+                padding: 0 20px
+            @include maxWidth(767px)
+                padding: 0 5px
+            @include flex(row, null, center)
+            a   
+                color: $text-color
+                min-width: 45px
+                height: 45px
+                margin-right: 20px 
+                @include flex(row, center, center)
+                font-size: 29px
+                &:hover
+                    background-color: #e0e0e0
+                &:first-child
+                    background: $blue-color
+                    color: $white-color
+                &:last-child:hover
+                    background: unset
+        &-contact
+            margin : 20px auto
+            @include text(16px, 400, 36.33px)
+            h2 
+                @include text(31px, 400, 36.33px)
+                padding: 0
+                margin-bottom: 20px
+            &-item
+                @include flex(column, center, null)
+                row-gap: 20px
+                i
+                    @include flex(row, null, null)
+                    column-gap: 5px
+            &-form
+                form
+                    @include flex(column, space-between, null)
+                    margin-bottom: 20px
+                    row-gap: 10px
+                    -webkit-row-gap: 20px
+                    -ms-row-gap: 20px
+                    -o-row-gap: 20px
+                    -moz-row-gap: 20px
+                    input
+                        width: 100%
+                        padding: 5px
+                        outline: none
+                        border-radius: 5px
+                        border: 1px solid #ccc
+                
+.footer    
+    &__container
+        max-width: 700px
+        height: auto
+        margin: 0 auto
+        .row
+            row-gap: 20px
+            -webkit-row-gap: 20px
+            -ms-row-gap: 20px
+            -o-row-gap: 20px
+            -moz-row-gap: 20px
+            text-align: center
+            span
+                display: inline
+                text-transform: uppercase 
+                color: $text-color
+        h2
+            margin: 20px 0
+            text-align: center
+                    
+            

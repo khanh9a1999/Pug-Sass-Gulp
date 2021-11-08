@@ -1,0 +1,54 @@
+@font-face 
+    font-family: 'Open Sans', sans-serif
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap')
+
+*
+    box-sizing: inherit
+
+html
+    font-family: 'Open Sans', sans-serif
+    box-sizing: border-box
+
+$text-color: #000
+$white-color: #fff
+$grey-color: #f5f5f5
+$blue-color: #3a96ff
+$containers: 1080px
+@mixin flex($direction, $content, $items) 
+    flex-direction: $direction
+    -webkit-flex-direction: $direction
+    -moz-flex-direction: $direction
+    -ms-flex-direction: $direction
+    -o-flex-direction: $direction
+    display: flex
+    justify-content: $content
+    -webkit-justify-content: $content
+    -moz-justify-content: $content
+    -ms-justify-content: $content
+    -o-justify-content: $content
+    align-items: $items
+    -webkit-align-items: $items
+    -moz-align-items: $items
+    -ms-align-items: $items
+    -o-align-items: $items
+
+@mixin position($position, $top, $right)
+    position: $position
+    -ms-position: $position
+    -webkit-position: $position
+    -o-position: $position
+    top: $top
+    right: $right
+
+@mixin text($font-size, $font-weight, $line-height)
+    font-size: $font-size
+    font-weight: $font-weight
+    line-height: $line-height
+
+@mixin img($width, $height)
+    max-width: $width
+    height: $height
+
+@mixin maxWidth($breakpoint) 
+  @media only screen and (max-width: $breakpoint)
+    @content

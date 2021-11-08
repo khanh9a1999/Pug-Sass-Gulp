@@ -1,0 +1,49 @@
+include ./vars
+
+mixin link(href)
+  if !href
+    a(href="javascript:void(0)")&attributes(attributes)
+      if block
+        block
+  else
+    a(href=href)&attributes(attributes)
+      if block
+        block
+
+mixin img(src, alt)
+  if !alt
+    //- nếu ko có alt thì cho rỗng, ngược lại cho bằng alt truyền vô
+    img(src=src, alt="")&attributes(attributes)
+  else
+    img(src=src, alt=alt)&attributes(attributes)
+
+mixin list(ObjorArr) 
+    ul 
+        each n in ObjorArr
+            li
+                +link= n
+
+mixin offers 
+  each a, n in popular 
+    .main__container-offers-list-item
+      +img("./assets/images/"+ n + ".png", n)
+      p= a
+
+mixin item(src,title,price, button= "Add to cart")
+  .main__container-item-content.col-lg-4.col-md-6.col-sm-12&attributes(attributes)
+    img(src=src, alt="product")
+    h2= title
+    p= price
+    button(type="submit")= button
+
+mixin pagination 
+    each n in pagination 
+        +link(href)= n
+
+mixin form(fors,types,text)
+  label(for = fors)&attributes(attributes)= text
+  input(type= types, name=fors)
+
+mixin footers
+  each n in footers
+    span&attributes(attributes)= n

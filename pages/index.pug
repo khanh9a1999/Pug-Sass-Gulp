@@ -1,0 +1,62 @@
+extends layout/layout
+block vars
+    include ./blocks/vars
+block main
+    main.main
+        .main__container 
+            .main__container-title
+                h1 Shop
+            #carouselExampleIndicators.carousel.slide(data-bs-ride="carousel")
+                .carousel-indicators
+                    button(type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1")
+                    button(type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2")
+                    button(type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3")
+                .carousel-inner
+                    .carousel-item.active 
+                        +img("assets/images/slide1.jpg","slide1")
+                    .carousel-item
+                        +img("assets/images/slide2.jpg","slide1")
+                    .carousel-item
+                        +img("assets/images/slide3.jpg","slide1")
+                button.carousel-control-prev(type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev")
+                    span.carousel-control-prev-icon(aria-hidden="true")
+                    span.visually-hidden Previous
+                button.carousel-control-next(type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next")
+                    span.carousel-control-next-icon(aria-hidden="true")
+                    span.visually-hidden Next
+            .main__container-offers
+                h2 Popular Offers
+                .main__container-offers-list
+                    +offers
+            .main__container-sort 
+                span Showing 1-6 of 9 results
+                .main__container-sort-menu
+                    span Default sorting 
+                        i.ri-arrow-down-s-line
+                    .main__container-sort-menu-list 
+                        +list(listSort)
+            .main__container-item 
+                .container-sm
+                    .row.g-3(style="column-gap: 30px").d-flex.justify-content-center.align-items-center
+                        +item("assets/images/product1.png","Dipped Tripod Stool","$35")
+                        +item("assets/images/product2.png","Index Card Catalog","$49.95")
+                        +item("assets/images/product3.png","Never Settle Mug","$50")
+                        +item("assets/images/product4.png","Oclock Never Die","$36")
+                        +item("assets/images/product5.png","Speaker Big ","$98")
+                        +item("assets/images/product6.png","T-shirt Black Kpop","$20")
+            .main__container-pagination 
+                +pagination 
+                +link  NextPage
+                    i.ri-arrow-right-s-line  
+            .main__container-contact 
+                .container-sm
+                    h2 Contact
+                    .row.justify-content-center.align-items-center 
+                        .main__container-contact-item.col-md-4.col-sm-12
+                            i.ri-mail-line hellomyshop@gmail.com
+                            i.ri-map-pin-line PRo-Abc-198 
+                            i.ri-phone-line +7 (938)833 24 15
+                        .main__container-contact-form.col-md-8.com-sm-12
+                            form(action="#")
+                                +form("email","text","Email")
+                                +form("message","text","Messages")
